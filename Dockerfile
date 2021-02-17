@@ -29,6 +29,10 @@ RUN chmod -R 755 /var/www/*
 COPY init.sh ./
 CMD bash init.sh
 
+
+# Perso
+
+# -----
 #	https://forhjy.medium.com/how-to-install-lemp-wordpress-on-debian-buster-by-using-dockerfile-1-75ddf3ede861
 #	https://forhjy.medium.com/42-ft-server-how-to-install-lemp-wordpress-on-debian-buster-by-using-dockerfile-2-4042adb2ab2c
 
