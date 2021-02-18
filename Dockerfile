@@ -16,21 +16,21 @@ RUN mv phpMyAdmin-5.0.1-english phpmyadmin
 COPY config.inc.php phpmyadmin
 
 # Wordpress
-#RUN wget https://wordpress.org/latest.tar.gz
-#RUN tar -xvzf latest.tar.gz && rm -rf latest.tar.gz
-#COPY wp-config.php /var/www/html
+RUN wget https://wordpress.org/latest.tar.gz
+RUN tar -xvzf latest.tar.gz && rm -rf latest.tar.gz
+COPY wp-config.php /var/www/html
 
 # create SSL certificate
-#RUN openssl req -x509 -nodes -days 365 -subj "/C=KR/ST=Korea/L=Seoul/O=innoaca/OU=42seoul/CN=forhjy" -newkey rsa:2048 -keyout /etc/ssl/nginx-selfsigned.key -out /etc/ssl/nginx-selfsigned.crt;
+RUN openssl req -x509 -nodes -days 365 -subj "/C=KR/ST=Korea/L=Seoul/O=innoaca/OU=42seoul/CN=forhjy" -newkey rsa:2048 -keyout /etc/ssl/nginx-selfsigned.key -out /etc/ssl/nginx-selfsigned.crt;
 
 # modif authorization
-#RUN chown -R www-data:www-data *
-#RUN chmod -R 755 /var/www/*
+RUN chown -R www-data:www-data *
+RUN chmod -R 755 /var/www/*
 COPY init.sh ./
 CMD bash init.sh
 
 #	https://forhjy.medium.com/how-to-install-lemp-wordpress-on-debian-buster-by-using-dockerfile-1-75ddf3ede861
-#	https://forhjy.medium.com/how-to-install-lemp-wordpress-on-debian-buster-by-using-dockerfile-1-75ddf3ede861
+#	https://forhjy.medium.com/42-ft-server-how-to-install-lemp-wordpress-on-debian-buster-by-using-dockerfile-2-4042adb2ab2c
 
 # ---------------------- command line
 #docker build -t nginx .
