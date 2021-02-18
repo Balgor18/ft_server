@@ -9,8 +9,8 @@ RUN apt-get -y install mariadb-server
 RUN apt-get -y install php7.3 php-mysql php-fpm php-pdo php-gd php-cli php-mbstring
 
 WORKDIR /etc/nginx/
-COPY nginx.conf sites-enabled/nginx.conf
-RUN ln -n sites-enabled/nginx.conf sites-available/nginx.conf
+#COPY nginx.conf sites-enabled/nginx.conf
+#RUN ln -n sites-enabled/nginx.conf sites-available/nginx.conf
 
 WORKDIR /var/www/html/
 RUN wget https://files.phpmyadmin.net/phpMyAdmin/5.0.1/phpMyAdmin-5.0.1-english.tar.gz
