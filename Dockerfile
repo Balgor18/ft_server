@@ -8,8 +8,10 @@ RUN apt-get -y install nginx
 RUN apt-get -y install mariadb-server
 RUN apt-get -y install php7.3 php-mysql php-fpm php-pdo php-gd php-cli php-mbstring
 
-WORKDIR /etc/nginx/sites-available
-COPY nginx.conf nginx.conf
+WORKDIR /etc/nginx
+#COPY nginx.conf sites-enabled/nginx.conf
+COPY nginx.conf sites-available/nginx.conf
+#RUN ln -s sites-enabled/nginx.conf sites-available/nginx.conf
 
 WORKDIR /var/www/html/
 RUN wget https://files.phpmyadmin.net/phpMyAdmin/5.0.1/phpMyAdmin-5.0.1-english.tar.gz
@@ -29,7 +31,11 @@ RUN chmod -R 755 /var/www/*
 COPY init.sh ./
 CMD bash init.sh
 
-
+# For me
+RUN apt-get install git -y
+RUN apt-get install zsh -y
+RUN sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)" -y
+RUN zsh
 # Perso
 
 # -----
@@ -40,3 +46,6 @@ CMD bash init.sh
 #docker build -t nginx .
 #docker run -it --rm -p 80:80 nginx
 # -----------------------------------
+
+
+# when -y is here = -yes for all question
