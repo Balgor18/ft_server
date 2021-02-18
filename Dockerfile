@@ -8,16 +8,7 @@ RUN apt-get -y install nginx
 RUN apt-get -y install mariadb-server
 RUN apt-get -y install php7.3 php-mysql php-fpm php-pdo php-gd php-cli php-mbstring
 
-#WORKDIR /etc/nginx
-#COPY nginx.conf sites-enabled/nginx.conf
-#RUN ln -s sites-enabled/nginx.conf sites-available/nginx.conf
-
 WORKDIR /etc/nginx/
-#RUN rm sites-available/default
-#RUN rm sites-enabled/default
-#COPY nginx.conf sites-enabled/default
-#RUN ln -n sites-enabled/default sites-available/default
-
 COPY nginx.conf sites-enabled/nginx.conf
 RUN ln -n sites-enabled/nginx.conf sites-available/nginx.conf
 
