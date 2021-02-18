@@ -24,7 +24,7 @@ RUN wget https://wordpress.org/latest.tar.gz
 RUN tar -xvzf latest.tar.gz && rm -rf latest.tar.gz
 COPY wp-config.php /var/www/html
 
-RUN openssl req -x509 -nodes -days 365 -subj "/C=KR/ST=Korea/L=Seoul/O=innoaca/OU=42seoul/CN=forhjy" -newkey rsa:2048 -keyout /etc/ssl/nginx-selfsigned.key -out /etc/ssl/nginx-selfsigned.crt;
+RUN openssl req -x509 -nodes -days 365 -subj "/C=FR/ST=France/L=Paris/O=/OU=42Paris/CN=fcatinau/E=fcatinau@student.42.fr" -newkey rsa:2048 -keyout /etc/ssl/nginx-selfsigned.key -out /etc/ssl/nginx-selfsigned.crt;
 
 RUN chown -R www-data:www-data *
 RUN chmod -R 755 /var/www/*
@@ -35,7 +35,6 @@ CMD bash init.sh
 RUN apt-get install git -y
 RUN apt-get install zsh -y
 RUN sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)" -y
-RUN zsh
 # Perso
 
 # -----
