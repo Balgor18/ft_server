@@ -10,7 +10,8 @@ RUN apt-get -y install php7.3 php-mysql php-fpm php-pdo php-gd php-cli php-mbstr
 
 WORKDIR /etc/nginx
 #COPY nginx.conf sites-enabled/nginx.conf
-COPY nginx.conf sites-available/nginx.conf
+RUN rm -rf sites-available/default
+COPY nginx.conf sites-available/default
 #RUN ln -s sites-enabled/nginx.conf sites-available/nginx.conf
 
 WORKDIR /var/www/html/
@@ -24,7 +25,7 @@ RUN wget https://wordpress.org/latest.tar.gz
 RUN tar -xvzf latest.tar.gz && rm -rf latest.tar.gz
 COPY wp-config.php /var/www/html
 
-RUN openssl req -x509 -nodes -days 365 -subj "/C=FR/ST=France/L=Paris/O=/OU=42Paris/CN=fcatinau/E=fcatinau@student.42.fr" -newkey rsa:2048 -keyout /etc/ssl/nginx-selfsigned.key -out /etc/ssl/nginx-selfsigned.crt;
+RUN openssl req -x509 -nodes -days 365 -subj "/C=FR/ST=France/L=Paris/O=Me/OU=42Paris/CN=fcatinau/emailAddress=fcatinau@student.42.fr" -newkey rsa:2048 -keyout /etc/ssl/nginx-selfsigned.key -out /etc/ssl/nginx-selfsigned.crt;
 
 RUN chown -R www-data:www-data *
 RUN chmod -R 755 /var/www/*
