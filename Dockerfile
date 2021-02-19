@@ -14,21 +14,4 @@ COPY ./srcs/wp-config.php /tmp/wp-config.php
 
 CMD bash init.sh
 
-# For me
-RUN apt-get install git -y
-RUN apt-get install zsh -y
-RUN sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)" -y
-# Perso
-
-# -----
-#	https://forhjy.medium.com/how-to-install-lemp-wordpress-on-debian-buster-by-using-dockerfile-1-75ddf3ede861
-#	https://forhjy.medium.com/42-ft-server-how-to-install-lemp-wordpress-on-debian-buster-by-using-dockerfile-2-4042adb2ab2c
-
-# ---------------------- command line
-# docker build -t nginx .
-# docker run -it --rm -p 80:80 nginx
-# docker system prune
-# -----------------------------------
-
-
-# when -y is here = -yes for all question
+EXPOSE 443 80
