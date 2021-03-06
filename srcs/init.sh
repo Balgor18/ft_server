@@ -10,6 +10,8 @@ openssl req -newkey rsa:4096 -x509 -sha256 -days 365 -nodes -out /etc/nginx/ssl/
 
 # NGINX
 mv ./tmp/nginx-conf /etc/nginx/sites-available/default
+rm -f /var/www/html/index.nginx-debian.html
+rm -f /var/www/html/index.php
 
 # MYSQL
 echo "CREATE DATABASE wordpress;" | mysql -u root --skip-password
@@ -30,7 +32,7 @@ wget -c https://wordpress.org/latest.tar.gz
 tar -xvzf latest.tar.gz
 mv wordpress/ /var/www/html
 mv /tmp/wp-config.php /var/www/html/wordpress
-rm -f /var/www//html/wordpress/wp-config-sample.php
+rm -f /var/www/html/wordpress/wp-config-sample.php
 service php7.3-fpm start
 service nginx start
 
