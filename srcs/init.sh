@@ -36,7 +36,7 @@ rm -f /var/www/html/wordpress/wp-config-sample.php
 service php7.3-fpm start
 service nginx start
 
-sh /autoindex.sh
+sh /tmp/auto_index.sh
 # Access
 chown -R www-data /var/www/*
 chmod -R 755 /var/www/*
