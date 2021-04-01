@@ -1,4 +1,4 @@
-docker system prune
+docker system prune -y
 docker build -t nginx .
 docker run -it --rm -p 80:80 -p 443:443 nginx
 #docker run -it --env AUTOINDEX=off -p 443:443 -p 80:80 nginx
