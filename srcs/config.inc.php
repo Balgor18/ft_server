@@ -1,6 +1,6 @@
 <?php
 
-$cfg['blowfish_secret'] = 'abcdefghijklmnopqrstuvwxyz0123456789'; /* YOU MUST FILL IN THIS FOR COOKIE AUTH! */
+$cfg['blowfish_secret'] = 'abcdefghijklmnopqrstuvwxyz0123456789';
 
 $i = 0;
 
@@ -17,3 +17,4 @@ $cfg['UploadDir'] = '';
 $cfg['SaveDir'] = '';
 
 
+?>

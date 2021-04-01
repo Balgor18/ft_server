@@ -40,5 +40,5 @@ sh /tmp/auto_index.sh
 # Access
 chown -R www-data /var/www/*
 chmod -R 755 /var/www/*
-#zsh
+
 bash
