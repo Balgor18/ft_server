@@ -11,7 +11,6 @@ openssl req -newkey rsa:4096 -x509 -sha256 -days 365 -nodes -out /etc/nginx/ssl/
 # NGINX
 mv ./tmp/nginx-conf /etc/nginx/sites-available/default
 rm -f /var/www/html/index.nginx-debian.html
-rm -f /var/www/html/index.php
 
 # MYSQL
 echo "CREATE DATABASE wordpress;" | mysql -u root --skip-password
