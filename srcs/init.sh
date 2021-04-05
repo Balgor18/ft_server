@@ -1,8 +1,8 @@
 service mysql start
 
 # website
-touch /var/www/html/index.php
-echo "<?php phpinfo(); ?>" >> /var/www/html/index.php
+#touch /var/www/html/index.php
+#echo "<?php phpinfo(); ?>" >> /var/www/html/index.php
 
 # SSL
 mkdir /etc/nginx/ssl
