@@ -9,16 +9,14 @@ chmod -R 755 /var/www/*
 # website
 #touch /var/www/html/index.php
 #echo "<?php phpinfo(); ?>" >> /var/www/html/index.php
-rm /var/www/html/index.html
 
 # SSL
 mkdir /etc/nginx/ssl
 openssl req -newkey rsa:4096 -x509 -sha256 -days 365 -nodes -out /etc/nginx/ssl/localhost.pem -keyout /etc/nginx/ssl/localhostkey.key -subj "/C=FR/ST=France/L=Paris/O=Me/OU=42Paris/CN=fcatinau/emailAddress=fcatinau@student.42.fr"
 
 # NGINX
-cp ./tmp/nginx.conf /etc/nginx/sites-available/localhost
-ln -s /etc/nginx/sites-available/localhost /etc/nginx/sites-enabled/localhost
-rm -rf /etc/nginx/sites-enabled/default
+cp ./tmp/nginx.conf /etc/nginx/sites-available/default
+ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
 
 # MYSQL
 echo "CREATE DATABASE wordpress;" | mysql -u root --skip-password
