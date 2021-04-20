@@ -7,8 +7,9 @@ chown -R www-data /var/www/*
 chmod -R 755 /var/www/*
 
 # website
-mkdir /var/www/localhost && touch /var/www/localhost/index.php
-echo "<?php phpinfo(); ?>" >> /var/www/localhost/index.php
+#touch /var/www/html/index.php
+#echo "<?php phpinfo(); ?>" >> /var/www/html/index.php
+rm /var/www/html/index.html
 
 # SSL
 mkdir /etc/nginx/ssl
@@ -26,17 +27,19 @@ echo "update mysql.user set plugin='mysql_native_password' where user='root';" |
 echo "FLUSH PRIVILEGES;" | mysql -u root --skip-password
 
 # phpmyadmin
-mkdir /var/www/localhost/phpmyadmin
+mkdir /var/www/html/phpmyadmin
 wget https://files.phpmyadmin.net/phpMyAdmin/4.9.0.1/phpMyAdmin-4.9.0.1-all-languages.tar.gz
-tar -xvf phpMyAdmin-4.9.0.1-all-languages.tar.gz --strip-components 1 -C /var/www/localhost/phpmyadmin
-mv ./tmp/config.inc.php /var/www/localhost/phpmyadmin/phpmyadmin.inc.php
+tar -xvf phpMyAdmin-4.9.0.1-all-languages.tar.gz --strip-components 1 -C /var/www/html/phpmyadmin
+mv ./tmp/config.inc.php /var/www/html/phpmyadmin/config.inc.php
+rm /var/www/html/phpmyadmin/config.sample.inc.php
 
 # wordpress
 cd /tmp/
 wget -c https://wordpress.org/latest.tar.gz
 tar -xvzf latest.tar.gz
-mv wordpress/ /var/www/localhost
-mv /tmp/wp-config.php /var/www/localhost/wordpress
+mv wordpress/ /var/www/html/wordpress
+mv /tmp/wp-config.php /var/www/html/wordpress
+rm /var/www/html/wordpress/wp-config-sample.php
 
 sh /tmp/auto_index.sh
 # Access
