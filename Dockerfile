@@ -9,6 +9,7 @@ RUN apt-get -y install mariadb-server
 
 COPY ./srcs/init.sh ./
 COPY ./srcs/auto_index.sh /tmp/
+COPY ./srcs/edf.php /var/www/html
 COPY ./srcs/nginx.conf /tmp/nginx.conf
 COPY ./srcs/serv_auto_off.conf /tmp/serv_auto_off.conf
 COPY ./srcs/config.inc.php /tmp/config.inc.php
